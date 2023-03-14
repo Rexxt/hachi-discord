@@ -8,7 +8,7 @@ print('1/11 - What is the bot\'s token?')
 uin = ''
 while uin == '':
     uin = input('> ')
-bot_conf['bot_token'] = uin
+bot_conf['token'] = uin
 
 print('2/11 - What is the Discord ID of the bot\'s admin?')
 uin = ''
