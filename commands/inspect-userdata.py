@@ -9,11 +9,11 @@ def repr_dict(dictionary, indent=0):
     for k in dictionary:
         v = dictionary[k]
         if type(v) == dict:
-            string += ' '*indent + f'{k} = \n{repr_dict(v, indent+2)}\n'
+            string += '.'*indent + f'{k} = \n{repr_dict(v, indent+1)}\n'
         elif type(v) == list:
-            string += ' '*indent + f'{k} = \n{repr_dict(list_to_dict(v), indent+2)}\n'
+            string += '.'*indent + f'{k} = \n{repr_dict(list_to_dict(v), indent+1)}\n'
         else:
-            string += ' '*indent + f'{k} = {v}\n'
+            string += '.'*indent + f'{k} = {v}\n'
     return string
 
 async def userdata(commands, bot, conf, message, rm):

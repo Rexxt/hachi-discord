@@ -41,7 +41,10 @@ async def try_pronouns(commands, bot, conf, message, rm):
         print(known_sets[rm.group(2)])
         prns = pronouns.UndefPronouns(known_sets[rm.group(2)])
     elif pronoun_set_to_try == 'my':
-        prns = pronouns.UserPronouns(bot, message.author.id)
+        try:
+            prns = pronouns.UserPronouns(bot, message.author.id)
+        except KeyError as e:
+            await message.channel.send(f'ah sorry, i don\'t know your pronouns, you mind telling me them? ({random.choice(conf["example_prefixes"])} i use <your pronouns>)')
     else:
         split_prns = rm.group(2).split('/')
         if len(split_prns) == 6:
